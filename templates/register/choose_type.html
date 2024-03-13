@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wybór Rejestracji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .login-container {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        form {
+            display: block;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="button"],
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            border: 1px solid #000;
+            border-radius: 4px;
+        }
+
+        input[type="button"]:hover,
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Styl dla przycisku "Wróć" */
+        form:nth-child(2) {
+            margin-top: 10px;
+        }
+
+        /* Dodatkowy styl dla przycisku "Wroc" */
+        input[name="wroc"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            border: 1px solid #000;
+            border-radius: 4px;
+        }
+
+        input[name="wroc"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Wybór Rejestracji</h1>
+
+<div class="login-container">
+    <form id="rejestracjaForm" action="#" method="post">
+        <label>Wybierz kim jesteś:</label><br />
+        <select id="typRejestracji" name="typ_rejestracji">
+            <option value="uczen">Uczeń</option>
+            <option value="nauczyciel">Nauczyciel</option>
+        </select>
+        <br />
+
+        <input
+                type="button"
+                name="zatwierdz"
+                value="Zatwierdź"
+                onclick="przekieruj()"
+        />
+    </form>
+
+    <form action="/login" method="post">
+        <input type="submit" name="wroc" value="Wróć" />
+    </form>
+</div>
+
+<script>
+    function przekieruj() {
+        var typRejestracji = document.getElementById("typRejestracji").value;
+
+        switch (typRejestracji) {
+            case "uczen":
+                window.location.href = "/register/student/form";
+                break;
+
+            case "nauczyciel":
+                window.location.href = "/register/teacher/form";
+                break;
+
+            default:
+                // Obsługa błędów lub przekierowanie na stronę domową
+                window.location.href = "/login";
+        }
+    }
+</script>
+</body>
+</html>

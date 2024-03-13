@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aktualizuj Stanowisko</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        form {
+            width: 20%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical; /* Allow vertical resizing of textarea */
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="button"] {
+            background-color: #45a049;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<form action="/dashboard/admin/{{ user_id }}/stand/update/update" method="post">
+    <label>Wybierz stanowisko do aktualizacji:</label><br />
+    <select name="stand" id="stand" required>
+        {% for stand in stands%}
+        <option value="{{ stand }}">{{ stand.name }}</option>
+        {% endfor %}
+    </select
+    ><br />
+
+    <label>Nowa Nazwa Stanowiska:</label><br />
+    <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Wprowadź nową nazwę stanowiska"
+    /><br />
+
+    <label>Nowy Opis Stanowiska:</label><br />
+    <textarea
+            name="description"
+            id="description"
+            placeholder="Wprowadź nowy opis stanowiska"
+            rows="4"
+    ></textarea
+    ><br />
+
+    <label>Nowa Sala:</label><br />
+    <select name="room">
+        <option value="null"></option>
+        {% for buildingno_roomcode in rooms%}
+        <option value="{{ buildingno_roomcode }}}">{{ buildingno_roomcodes }}</option>
+        {% endfor %}
+    </select
+    ><br />
+
+    <label>Nowa Koło:</label><br />
+    <select name="club_id" id="club_id">
+        <option value="null"></option>
+        {% for club in clubs %}
+        <option value="{{ club.id }}">{{ club.name }}</option>
+        {% endfor %}
+    </select
+    ><br />
+
+    <label>Nowy Instytut:</label><br />
+    <select name="institute_id" id="institute_id">
+        <option value="null"></option>
+        {% for institute in institutes %}
+        <option value="{{ institute.id }}">{{ institute.name }}</option>
+        {% endfor %}
+    </select
+    ><br />
+
+    <label>Nowy Wydział:</label><br />
+    <select name="faculty_id" id="faculty_id">
+        <option value="null"></option>
+        {% for faculty in faculties %}
+        <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+        {% endfor %}
+    </select
+    ><br />
+
+    <label>Nowa Firma:</label><br />
+    <select name="company_id" id="company_id">
+        <option value="null"></option>
+        {% for club in clubs %}
+        <option value="{{ company.id }}">{{ company.name }}</option>
+        {% endfor %}
+    </select
+    ><br />
+
+    <input type="submit" value="Zatwierdź" />
+    <input
+            type="button"
+            value="Powrót do głównego panelu"
+            onclick="window.location.href='/dashboard/admin/{{ user_id }}'"
+    />
+</form>
+</body>
+</html>

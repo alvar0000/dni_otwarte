@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .login-container {
+        width: 300px;
+        margin: 20px auto;
+      }
+
+      form {
+        display: block;
+        margin: 0;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"],
+      input[type="button"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        padding: 8px;
+        border: 1px solid #000;
+        border-radius: 4px;
+      }
+
+      input[type="submit"]:hover,
+      input[type="button"]:hover {
+        background-color: #45a049;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #007bff;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Panel logowania</h1>
+
+    <div class="login-container">
+      <img src="../uzTKA.jpg" alt="Logo" width="500" />
+      <form id="loginForm" method="post" action="/login">
+        <label>Numer telefonu:</label><br />
+        <input
+          type="tel"
+          id="username"
+          name="username"
+          pattern="[0-9]{9}"
+          placeholder="Wprowadź numer telefonu (9 cyfr)"
+          required
+        />
+
+        <br/>
+
+        <label>Hasło:</label>
+
+        <br/>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          pattern=".{8,}"
+          placeholder="Wprowadź hasło (przynajmniej 8 znaków)"
+          required
+        />
+
+        <br/>
+
+        <input
+          type="submit"
+          name="logowanie"
+          value="Zaloguj się"
+          id="loginButton"
+        />
+      </form>
+
+      <p>
+        <a href="/register/">Zarejestruj się</a> |
+        <a href="/recover_password/">Zapomniałem hasła</a>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stanowisko</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .info {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .center-image {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Stanowisko Dni Otwartych</h1>
+</header>
+
+<div class="container">
+    <div class="center-image">
+        <img src="../uzTKA.jpg" alt="Zdjęcie Stanowiska" />
+    </div>
+
+    <div class="info">
+        <h1>{{ name }}</h1>
+        <h3>Stanowisko przygotowane przez:</h3>
+        <p>{{ owner_name }}</p>
+    </div>
+
+    <div class="info">
+        <h3>Opis stanowiska</h3>
+        <p>{{ description }}</p>
+        <h3>Plan zajęć:</h3>
+        <p>
+            <a
+                    href="{{ schedule_url }}"
+                    target="_blank"
+            >Link do planu</a
+            >
+        </p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        form {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<form action="/register/student/register" method="post">
+    <label>Numer telefonu:</label><br />
+    <input
+            type="tel"
+            id="phone_nr"
+            name="phone_nr"
+            placeholder="Wprowadź numer telefonu (9 cyfr)"
+            pattern="[0-9]{9}"
+            required
+    /><br />
+    <label>Hasło:</label><br />
+    <input
+            type="password"
+            id="password"
+            name="password"
+            pattern="^(?!\s).{8,}$"
+            placeholder="Wprowadź hasło (przynajmniej 8 znaków)"
+            required
+    /><br />
+    <label for="city_school">Szkoła:</label><br />
+    <input list="city_schools" name="city_schools" id="city_school" required>
+
+    <datalist id="city_schools">
+        {% for pair in cities_schools_pairs %}
+        <option value="{{ pair }}">{{ pair }}</option>
+        {% endfor %}
+    </datalist>
+
+    <br />
+    <input type="submit" value="Zarejestruj się" />
+</form>
+
+</body>
+</html>
